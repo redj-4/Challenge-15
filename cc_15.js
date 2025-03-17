@@ -84,3 +84,41 @@ document.getElementById("riskForm").addEventListener("submit", function (event) 
     // Reset the form after submission
     this.reset();
 });
+
+// Task 5 - Bulk Risk Updates: Increase all risk levels at once
+function increaseRiskLevels() {
+    // Select all risk cards on the dashboard
+    const riskCards = document.querySelectorAll(".riskCard");
+
+    riskCards.forEach(riskCard => {
+        // Get the element that contains the risk level text
+        const riskLevelElement = riskCard.querySelector(".levelText");
+        if (!riskLevelElement) return; // Skip if not found
+
+        // Retrieve and trim the current risk level text
+        const currentLevel = riskLevelElement.textContent.trim();
+        let newLevel = currentLevel; // Default remains the same
+
+        // Determine the new risk level using a switch statement
+        switch (currentLevel.toLowerCase()) {
+            case "low":
+                newLevel = "Medium"; // Increase from Low to Medium
+                break;
+            case "medium":
+                newLevel = "High"; // Increase from Medium to High
+                break;
+            case "high":
+                // High remains unchanged
+                newLevel = "High";
+                break;
+            default:
+                // Do nothing if the risk level is unexpected
+        }
+
+        // If the risk level has changed, update the text and style
+        if (newLevel !== currentLevel) {
+            riskLevelElement.textContent = newLevel;
+            updateRiskCardStyle(riskCard, newLevel);
+        }
+    });
+}
