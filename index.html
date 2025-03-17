@@ -1,21 +1,93 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Risk Management Dashboard</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Risk Management Dashboard</title>
 </head>
+<style>
+    body {
+        font-family: 'Times New Roman', Times, serif;
+        margin:20px;
+    }
+    #riskDashboard {
+        display:flex;
+        flex-wrap: wrap;
+        gap:10px;
+        margin-top:20px;
+    }
+    .riskCard {
+        border: 1px rgb(0, 0, 0);
+        border-radius:8px;
+        padding:15px;
+        width:200px;
+        background-color: rgb(234, 186, 90);
+        box-shadow: 0 2px 4px lightgray;
+    }
+    .riskCard p {
+        margin: 5px 0;
+    }
+    #riskForm{
+        margin-top: 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        width: 300px;
+    }
+    #riskForm label {
+        font-weight: bold;
+    }
+    #riskForm input, #riskForm select {
+        padding: 5px;
+        border: 1px rgb(242, 242, 135);
+        border-radius: 4px;
+    }
+    #riskForm button {
+        padding: 10px;
+        background-color: rgb(129, 230, 129);
+        color: black;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+    #riskForm button:hover {
+        background-color: lightgray;
+    }
+    .resolveButton {
+        padding: 5px 10px;
+        background-color: rgb(182, 150, 78);
+        color: black;
+        border:none;
+        border-radius: 4px;
+        cursor: pointer;
+        margin-top: 10px;
+    }
+    .resolveButton:hover {
+        background-color: white;
+    }
+</style>
+<!--Task 1 Base Structure Setup-->
 <body>
-  <!-- Container for all risk items -->
-  <div id="riskDashboard"></div>
-  
-  <!-- Form for adding new risk items -->
-  <form id="riskForm">
-    <input type="text" id="riskInput" placeholder="Enter risk assessment" required>
-    <button type="submit">Add Risk Assessment</button>
-  </form>
-  
-  <!-- Link to external JavaScript file -->
-  <script src="cc_15.js"></script>
+    <h1> Risk Management Dashboard</h1>
+    <!--Button to increase risk levels-->
+    <button id="increaseRiskLevels">Increase Risk Level</button>
+    <!--risk item container-->
+    <div id="riskDashboard">
+        <!-- Risk items will be dynamically added here -->
+    </div>
+    <form id="riskForm">
+        <label for="riskName">Risk Name:</label>
+        <input type="text" id="riskName" name="riskName" required>
+        <label for="riskLevel">Risk Level</label>
+        <select id="riskLevel" name="riskLevel" required>
+            <option value="low">low</option>
+            <option value="medium">medium</option>
+            <option value="high">high</option>
+        </select>
+        <label for="department">department:</label>
+        <input type="text" id="department" name="department" required>
+        <button type="submit">add risk</button>
+    </form>
+    <script src="cc_15.js"></script>
 </body>
 </html>
