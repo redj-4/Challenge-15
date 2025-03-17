@@ -2,7 +2,7 @@
 const riskDashboard = document.getElementById("riskDashboard"); //selecting container element
 console.log ("risk dashboard loaded"); //printing message to console
 
-// Task 2: Adding Items Dynamically
+// Task 2: Adding Items Dynamically + Task 3: Removing Risk Items 
 
 function addRiskItem(riskName, riskLevel, department) {
     const riskDashboard = document.getElementById("riskDashboard");
@@ -34,11 +34,10 @@ function addRiskItem(riskName, riskLevel, department) {
 
     riskDashboard.appendChild(riskCard);
 
-    // Adding event listener to remove the risk card when the "Resolve" button is clicked
-   // const resolveButton = riskCard.querySelector(".resolveButton"); 
-   // resolveButton.addEventListener("click", function (event) {
-       // riskCard.remove();
-   // });
+    const resolveButton = riskCard.querySelector(".resolveButton"); 
+    resolveButton.addEventListener("click", function (event) {
+        riskCard.remove();
+    });
 }
 
 // Event listener for the form to add new risk items
@@ -50,4 +49,3 @@ document.getElementById("riskForm").addEventListener("submit", function(event) {
     addRiskItem(riskName, riskLevel, department);
     this.reset(); // Optionally reset the form
 });
-
