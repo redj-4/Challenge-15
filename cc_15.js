@@ -122,3 +122,11 @@ function increaseRiskLevels() {
         }
     });
 }
+
+// Task 6 - Handling Event Propagation
+function attachRiskCardPropagation(riskCard) {
+    // Attach an event listener to the risk card that prevents click events from bubbling up
+    riskCard.addEventListener("click", function(event) {
+        event.stopPropagation();
+    });
+}
